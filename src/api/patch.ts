@@ -11,7 +11,7 @@ interface RequestConfig {
 // returns: Object {
 //   "completed": false,
 //   "id": 1,
-//   "title": "delectus aut autem",
+//   "title": "Updated Todo",
 //   "userId": 1,
 // }
 export const patchDataToAPI = async <T>(endpoint: string, data: any = {}, headers: any = {}): Promise<T> => {

@@ -9,10 +9,8 @@ interface RequestConfig {
 
 // sample API for testing
 // returns: Object {
-//   "completed": false,
+//   "completed": true,
 //   "id": 1,
-//   "title": "delectus aut autem",
-//   "userId": 1,
 // }
 export const putDataToAPI = async <T>(endpoint: string, data: any = {}, headers: any = {}): Promise<T> => {
    try {
