@@ -3,18 +3,18 @@ import React, { useState } from "react";
 import { StyleSheet } from "react-native";
 import * as SecureStore from "expo-secure-store";
 import { View, Text, TextField, Button } from "react-native-ui-lib";
-import { Key, Value } from "../types/index";
+import { tKey, tValue } from "../types/index";
 
 // styling import
-import { styles } from "../styling/index"
+import { styles } from "../styling/index";
 
 // set to token storage
-const save = async (key: Key, value: Value): Promise<void> => {
+const save = async (key: tKey, value: tValue): Promise<void> => {
    await SecureStore.setItemAsync(key, value);
 };
 
 // get to token storage
-const getValueFor = async (key: Key): Promise<void> => {
+const getValueFor = async (key: tKey): Promise<void> => {
    let result = await SecureStore.getItemAsync(key);
    if (result) {
       alert("🔐 Here's your value 🔐 \n" + result);
@@ -24,8 +24,8 @@ const getValueFor = async (key: Key): Promise<void> => {
 };
 
 const Index = ({ initialKey, initialValue }): JSX.Element => {
-   const [key, setKey] = useState<Key>(initialKey);
-   const [value, setValue] = useState<Value>(initialValue);
+   const [key, setKey] = useState<tKey>(initialKey);
+   const [value, setValue] = useState<tValue>(initialValue);
 
    const handleSave = (): void => {
       save(key, value)
@@ -38,7 +38,7 @@ const Index = ({ initialKey, initialValue }): JSX.Element => {
          });
    };
 
-   const handleGet = (enteredKey: Key): void => {
+   const handleGet = (enteredKey: tKey): void => {
       getValueFor(enteredKey).catch((error) => {
          console.error("Error getting value for key:", error);
       });

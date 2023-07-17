@@ -5,8 +5,11 @@ import * as yup from "yup";
 import { View, Text, TextField, Button } from "react-native-ui-lib";
 import { FormValues } from "../types/index";
 
+// constant import
+import { email, password } from "../constants";
+
 // styling import
-import { styles } from "../styling/index"
+import { styles } from "../styling/index";
 
 const Index = (props): JSX.Element => {
    // Define the validation schema using Yup
@@ -22,11 +25,7 @@ const Index = (props): JSX.Element => {
 
    return (
       <View padding-s5>
-         <Formik
-            initialValues={{ email: "", password: "" }}
-            onSubmit={handleSubmit}
-            validationSchema={validationSchema}
-         >
+         <Formik initialValues={{ email, password }} onSubmit={handleSubmit} validationSchema={validationSchema}>
             {(formikProps: FormikProps<FormValues>) => (
                <View>
                   <Text>Email</Text>

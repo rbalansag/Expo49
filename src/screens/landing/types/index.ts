@@ -4,13 +4,13 @@ export interface iProps {
 }
 
 export interface FormValues {
-   email: email;
-   password: password;
+   email: tEmail;
+   password: tPassword;
 }
 
 // Types
-export type email = string;
-export type password = string;
+export type tEmail = string;
+export type tPassword = string;
 
-export type Key = string;
-export type Value = string;
+export type tKey = string;
+export type tValue = string;
