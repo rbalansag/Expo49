@@ -27,13 +27,14 @@ import Navigation from "./src/navigation";
 
 const App = () => {
    const hasNetwork = useNetworkStatus();
+   const hasRerendered = usePreRender();
    const [toastVisible, setToastVisible] = useState(hasNetwork);
 
    useLayoutEffect(() => {
       setToastVisible(true);
    }, [hasNetwork]);
 
-   const toastContent = useMemo(
+   const toastNetwork = useMemo(
       () =>
          !toastVisible ? null : (
             <Toast
@@ -65,9 +66,10 @@ const App = () => {
       [toastVisible, hasNetwork]
    );
 
+
    return (
       <ErrorBoundary>
-         {toastContent}
+         {toastNetwork}
          {Platform.OS === "android" && <StatusBar style="light" backgroundColor={"#000"} />}
          <Provider store={store}>
             <PersistGate loading={false} persistor={persistor}>
