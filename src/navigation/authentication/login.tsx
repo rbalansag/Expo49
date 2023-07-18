@@ -1,11 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
-import { register } from "react-native-bundle-splitter";
-import useNetworkStatus from "../onStart/useNetworkStatus";
-import { Text, View, Toast } from "react-native-ui-lib";
-import navigationStrings from "./constants/navigationStrings"
-import Authentication from './authentication';
-import Authenticated from './authenticated';
+import navigationStrings from "../constants/navigationStrings"
+import LoginScreen from "../../screens/authentication/login";
+import ForgotPasswordScreen from "../../screens/authentication/login/forgotPassword";
 
 export default function Index() {
    const Stack = createStackNavigator();
@@ -16,13 +13,13 @@ export default function Index() {
          <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen 
                options={{ ...TransitionPresets.SlideFromRightIOS }}
-               name={navigationStrings.AUTHENTICATION}
-               component={Authentication} 
+               name={navigationStrings.LOGIN_FORM}
+               component={LoginScreen} 
             />
             <Stack.Screen 
                options={{ ...TransitionPresets.SlideFromRightIOS }}
-               name={navigationStrings.AUTHENTICATED}
-               component={Authenticated} 
+               name={navigationStrings.FORGOT_PASSWORD}
+               component={ForgotPasswordScreen} 
             />
          </Stack.Navigator>
       </>

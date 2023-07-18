@@ -1,11 +1,8 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { createStackNavigator, TransitionPresets } from "@react-navigation/stack";
-import { register } from "react-native-bundle-splitter";
-import useNetworkStatus from "../onStart/useNetworkStatus";
-import { Text, View, Toast } from "react-native-ui-lib";
-import navigationStrings from "./constants/navigationStrings"
-import Authentication from './authentication';
-import Authenticated from './authenticated';
+import navigationStrings from "../constants/navigationStrings"
+import PinScreen from "../../screens/authentication/pin";
+import ForgotPinScreen from "../../screens/authentication/pin/forgotPin";
 
 export default function Index() {
    const Stack = createStackNavigator();
@@ -16,13 +13,13 @@ export default function Index() {
          <Stack.Navigator screenOptions={{ headerShown: false }}>
             <Stack.Screen 
                options={{ ...TransitionPresets.SlideFromRightIOS }}
-               name={navigationStrings.AUTHENTICATION}
-               component={Authentication} 
+               name={navigationStrings.ENTER_PIN}
+               component={PinScreen} 
             />
             <Stack.Screen 
                options={{ ...TransitionPresets.SlideFromRightIOS }}
-               name={navigationStrings.AUTHENTICATED}
-               component={Authenticated} 
+               name={navigationStrings.FORGOT_PIN}
+               component={ForgotPinScreen} 
             />
          </Stack.Navigator>
       </>
