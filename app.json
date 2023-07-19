@@ -15,6 +15,15 @@
       "**/*"
     ],
     "jsEngine": "hermes",
+    "plugins": [
+      [
+        "react-native-auth0",
+        {
+          "domain": "dev-mvp8fq05h32j8h2e.us.auth0.com",
+          "customScheme": "auth0.com.roadninja.bbt"
+        }
+      ]
+    ],
     "ios": {
       "jsEngine": "hermes",
       "supportsTablet": true,
@@ -26,10 +35,16 @@
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/icons/adaptive-icon.png",
         "backgroundColor": "#ffffff"
-      }
+      },
+      "package": "com.roadninja.bbt"
     },
     "web": {
       "favicon": "./assets/images/icons/favicon.png"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "3c39a2d4-bcc6-4e86-931b-c0f42ce9e1e0"
+      }
     }
   }
 }
