@@ -1,23 +1,10 @@
-import React, { useEffect, useLayoutEffect, useMemo, useState } from "react";
+import React, { useLayoutEffect, useMemo, useState } from "react";
 import { StatusBar } from "expo-status-bar";
 import { Provider } from "react-redux";
 import { AppRegistry, Platform, StyleSheet } from "react-native";
 import { PersistGate } from "redux-persist/integration/react";
 import { NavigationContainer } from "@react-navigation/native";
-import { register } from "react-native-bundle-splitter";
-import { API_URL } from "@env";
-import {
-   Text,
-   View,
-   Toast,
-   Dialog,
-   Colors,
-   PanningProvider,
-   RadioGroup,
-   RadioButton,
-   Switch,
-   Constants,
-} from "react-native-ui-lib";
+import { Text, View, Toast } from "react-native-ui-lib";
 
 import { store, persistor } from "./src/redux/store";
 import usePreRender from "./src/onStart/useCachedResouces";
@@ -65,7 +52,6 @@ const App = () => {
          ),
       [toastVisible, hasNetwork]
    );
-
 
    return (
       <ErrorBoundary>
